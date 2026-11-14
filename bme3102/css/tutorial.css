@@ -1,0 +1,44 @@
+/* Tutorial class: problem slide (statement, given, find | terms) then named-step solution slides */
+.pg2{display:grid;grid-template-columns:1.35fr 1fr;gap:34px;align-items:start;margin-top:.4em}
+.prob .stmt{margin:0 0 .3em;font-size:1.05em}
+.prob .src,.src{margin:0 0 .4em;color:var(--mute);font-size:.85em}
+.prob h4,.kick{margin:.55em 0 .25em;font-size:.92em;font-weight:500;color:var(--red)}
+.pg2 h4{margin-top:.2em}
+.prob table.given{width:100%;margin:0 0 .3em;font-size:.92em}
+.prob table.given td:first-child{color:var(--ink2)}
+.prob table.given td:nth-child(2){white-space:nowrap}
+.prob ul.find{margin:0;padding-left:1.1em}
+dl.terms{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:.55em 34px}
+dl.terms>div{break-inside:avoid}
+dl.terms dt{font-weight:500}
+dl.terms dd{margin:0;color:var(--ink2)}
+.kick{margin-top:0}
+ol.tsteps{list-style:none;margin:0;padding:0}
+ol.tsteps>li{margin:0 0 .5em;break-inside:avoid}
+ol.tsteps.two{columns:2;column-gap:44px}
+ol.tsteps .sn{font-weight:500}
+ol.tsteps .sn i{font-style:normal;font-weight:400;color:var(--red);margin-right:.6em}
+ol.tsteps p{margin:.05em 0 .1em;color:var(--ink2)}
+ol.tsteps .eq{text-align:left;margin:.1em 0 .15em 1.2em;overflow:visible}
+ol.tsteps .katex-display{margin:.15em 0;text-align:left}
+ol.tsteps .katex-display>.katex{text-align:left}
+p.ans{border-top:2px solid var(--ink);padding-top:.35em;margin:.5em 0 .2em;font-weight:500}
+p.ans span.al{color:var(--red);margin-right:.5em}
+p.tnote{margin:.3em 0 0;color:var(--ink2);font-size:.92em}
+.qgrid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.qgrid.one{grid-template-columns:1fr}
+.qp{border-top:2px solid var(--ink);padding-top:.45em;margin:0}
+.qp .qs{margin:0 0 .2em}
+.qp .qid{color:var(--red);font-weight:500;margin-right:.6em}
+.qp .qterm{margin:0 0 .3em;color:var(--ink2);font-size:.9em}
+.qp .qterm b{font-weight:500;color:var(--ink)}
+.qp p.ans{border-top-width:1px}
+ol.method{margin:.2em 0;padding-left:1.3em}
+ol.method li{margin:.3em 0}
+ol.method b{font-weight:500}
+table.units,table.plist{width:100%}
+table.plist td:first-child{white-space:nowrap;color:var(--red)}
+@media (max-width:760px){.pg2,dl.terms{grid-template-columns:1fr;gap:10px}ol.tsteps.two{columns:1}.qgrid{grid-template-columns:1fr;gap:16px}}
+html:not(.deck) ol.tsteps .eq,html:not(.deck) .qp .eq{overflow-x:auto;overflow-y:hidden;max-width:100%}
+.qgrid>.qp,.pg2>div,dl.terms>div{min-width:0}
+ol.refs a{overflow-wrap:anywhere}

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Mechanics of Machines I (BME 2102) and II (BME 3102) at Uganda Martyrs University: interactive notes with 3D models, live worked examples, self-checks and labs.">
+<title>Mechanics of Machines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+<style>
+/* Full-screen front page: header, two course cards that take the rest of the screen height, footer. */
+:root { --bg:#ffffff; --sheet:#ffffff; --ink:#15212c; --muted:#56626e; --rule:#d5dbe1; --accent:#1d5bbd; color-scheme:light; }
+* { box-sizing:border-box; }
+html, body { height:100%; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:Roboto, "Segoe UI", Helvetica, Arial, sans-serif; line-height:1.5; font-size:clamp(15px, 0.55vw + 0.5vh + 6px, 22px); }
+.wrap { min-height:100dvh; display:grid; grid-template-rows:auto 1fr auto; gap:clamp(16px, 3vh, 40px); padding:clamp(20px, 4vh, 56px) clamp(16px, 4vw, 72px); }
+header { display:grid; gap:0.4em; }
+.eyebrow { font-size:0.85em; color:var(--muted); }
+h1 { font-weight:700; font-size:2.6em; line-height:1.1; margin:0; }
+header p { margin:0; color:var(--muted); max-width:90ch; font-size:1.05em; }
+.grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); grid-template-rows:minmax(0,1fr) auto; column-gap:clamp(16px, 2vw, 36px); min-height:0; }
+.card { display:grid; grid-row:span 2; grid-template-rows:subgrid; background:var(--sheet); border:1px solid var(--rule); border-radius:8px; overflow:hidden; color:inherit; text-decoration:none; transition:border-color .15s; min-height:0; }
+.card:hover { border-color:var(--accent); }
+.card:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+.card .pic { position:relative; min-height:150px; border-bottom:1px solid var(--rule); background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.card img { position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:contain; }
+.card .body { padding:1em 1.2em 1.2em; display:grid; gap:0.4em; align-content:start; }
+.card .topic { font-size:0.85em; color:var(--muted); }
+.card h3 { font-weight:700; font-size:1.5em; margin:0; }
+.card p { margin:0; color:var(--muted); }
+.card .go { font-weight:500; color:var(--accent); margin-top:0.3em; }
+a { color:var(--accent); }
+footer { color:var(--muted); font-size:0.85em; }
+@media (max-width:760px) { .wrap { min-height:0; } .grid { grid-template-columns:1fr; grid-template-rows:none; row-gap:16px; } .card { grid-row:auto; grid-template-rows:auto auto; } .card .pic { aspect-ratio:16/9; min-height:0; } h1 { font-size:2.1em; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Uganda Martyrs University, Department of Mechanical Engineering</span>
+    <h1>Mechanics of Machines</h1>
+    <p>Interactive notes for the two Mechanics of Machines courses. Each chapter is a slide deck with 3D models, animations, worked examples where you change the numbers and the working follows, and a self-check. The labs sit inside the course they belong to, and each is linked from the section of the notes that uses it.</p>
+  </header>
+
+  <main class="grid">
+      <a class="card" href="bme2102/">
+        <div class="pic"><img src="img/mm1.jpg" alt="3D spur gears from the BME 2102 interactive notes" width="640" height="360"></div>
+        <div class="body">
+          <span class="topic">BME 2102 interactive notes</span>
+          <h3>Mechanics of Machines I</h3>
+          <p>BME 2102, seven chapters: introduction, simple mechanisms, velocity and acceleration, belt drives, toothed gearing, cams and balancing. Includes a tutorial class of all its worked calculations, and the slider-crank, quick return and spur gear labs.</p>
+          <span class="go">Open course</span>
+        </div>
+      </a>
+      <a class="card" href="bme3102/">
+        <div class="pic"><img src="img/mm2.jpg" alt="3D planetary gear set from the BME 3102 interactive notes" width="640" height="360"></div>
+        <div class="body">
+          <span class="topic">BME 3102 interactive notes</span>
+          <h3>Mechanics of Machines II</h3>
+          <p>BME 3102, seven chapters: planar mechanisms, turning moment and the flywheel, vibrations, friction and clutches, gearing and gear trains, kinematic synthesis, governors and gyroscopes. Includes a tutorial class of all its worked calculations, and the flywheel, engine, clutch, vibration and Tacoma Narrows labs.</p>
+          <span class="go">Open course</span>
+        </div>
+      </a>
+</main>
+
+  <footer>Works in any modern browser on a laptop, tablet or phone, with nothing to install. References for each chapter and lab are listed with it (APA style).</footer>
+</div>
+</body>
+</html>

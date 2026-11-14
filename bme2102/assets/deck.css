@@ -1,0 +1,275 @@
+/* BME 3102 Mechanics of Machines II: lecture decks */
+@font-face{font-family:Roboto;font-weight:400;font-style:normal;font-display:swap;src:url(../assets/fonts/roboto-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:Roboto;font-weight:400;font-style:italic;font-display:swap;src:url(../assets/fonts/roboto-latin-400-italic.woff2) format("woff2")}
+@font-face{font-family:Roboto;font-weight:500;font-style:normal;font-display:swap;src:url(../assets/fonts/roboto-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:Roboto;font-weight:700;font-style:normal;font-display:swap;src:url(../assets/fonts/roboto-latin-700-normal.woff2) format("woff2")}
+
+:root{
+  --ink:#1b1d21; --ink2:#4a4f57; --mute:#757b84; --line:#d9dce1; --soft:#f4f5f7;
+  --red:#a8141c; --blue:#1d5fae; --green:#1d7a46; --amber:#b86a00; --violet:#6a3fa0;
+  --barh:52px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--ink);font:400 18px/1.5 Roboto,system-ui,sans-serif}
+a{color:var(--blue)}
+h1,h2,h3,h4{font-weight:700;line-height:1.2;margin:0 0 .5em}
+p{margin:0 0 .65em}
+ul,ol{margin:0 0 .7em;padding-left:1.25em}
+li{margin:.18em 0}
+b,strong{font-weight:500}
+em{font-style:italic}
+small{font-size:.82em;color:var(--mute)}
+code{font-family:ui-monospace,Consolas,monospace;font-size:.9em}
+.katex{font-size:1.08em}
+.katex-display{margin:.35em 0}
+
+/* ---------- content blocks ---------- */
+.eq{text-align:center;margin:.4em 0 .6em;overflow-x:auto;overflow-y:hidden}
+.eq .cap,.cap{display:block;font-size:.82em;color:var(--ink2);margin-top:.15em}
+.eq .cap{text-align:center}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.two.w60{grid-template-columns:1.5fr 1fr}
+.two.w40{grid-template-columns:1fr 1.5fr}
+.two>div>h4,.col h4{font-size:1em;margin:0 0 .35em}
+.note{border-left:3px solid var(--red);padding:.15em 0 .15em .8em;margin:.6em 0}
+.lead{color:var(--ink)}
+.panel{margin:.4em 0 .8em}
+.panel svg,.panel canvas{display:block;max-width:100%;height:auto;margin:0 auto}
+.panel figcaption,.panel .cap{text-align:center}
+table{border-collapse:collapse;margin:.4em 0 .8em;font-size:.92em}
+th,td{border-bottom:1px solid var(--line);padding:.3em .7em;text-align:left;vertical-align:top}
+th{font-weight:500;border-bottom:2px solid var(--ink2)}
+.c-red{color:var(--red)}.c-blue{color:var(--blue)}.c-green{color:var(--green)}.c-amber{color:var(--amber)}.c-violet{color:var(--violet)}
+.muted{color:var(--mute)}
+.kicker{color:var(--ink2);font-size:.9em;margin-top:-.3em}
+
+/* worked examples */
+details.ex{border-top:2px solid var(--ink);border-bottom:1px solid var(--line);padding:.5em 0 .3em;margin:.4em 0 .9em}
+details.ex>summary{cursor:pointer;list-style:none}
+details.ex>summary::-webkit-details-marker{display:none}
+details.ex>summary .t{font-weight:700;display:block;margin-bottom:.2em}
+details.ex>summary .show{display:block;margin-top:.35em;color:var(--blue);font-weight:500;font-size:.9em}
+details.ex[open]>summary .show{display:none}
+details.ex .sol{margin-top:.5em;padding-top:.5em;border-top:1px dashed var(--line)}
+details.ex .ans{font-weight:500}
+.steps{margin:.2em 0 .5em;padding-left:1.3em}
+.steps li{margin:.25em 0}
+
+/* live inputs inside examples */
+.live{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;margin:.3em 0 .5em;font-size:.92em}
+.live label{display:flex;align-items:center;gap:6px}
+.live input[type=number]{width:5.2em;font:inherit;padding:2px 4px;border:1px solid var(--line);border-radius:4px}
+
+/* quiz */
+.quiz .q{margin:.2em 0 1em}
+.quiz .q>p:first-child{font-weight:500}
+.quiz ol.opts{list-style:upper-alpha;padding-left:1.6em}
+.quiz ol.opts li{cursor:pointer;padding:.25em .5em;border-radius:5px;margin:.25em 0;border:1px solid transparent}
+.quiz ol.opts li:hover{border-color:var(--line)}
+.quiz ol.opts li.right{border-color:var(--green);color:var(--green)}
+.quiz ol.opts li.wrong{border-color:var(--red);color:var(--red);text-decoration:line-through}
+.quiz .why{display:none;color:var(--ink2);border-left:3px solid var(--green);padding-left:.8em}
+.quiz .q.done .why{display:block}
+.qn{color:var(--mute);font-weight:400;margin-right:.4em}
+
+/* references */
+#refs ol{padding-left:0;list-style:none}
+#refs li{padding-left:2em;text-indent:-2em;margin:.5em 0}
+
+/* ---------- simulators ---------- */
+.sim{display:grid;grid-template-columns:270px 1fr;gap:18px;align-items:start;margin:.3em 0 .6em}
+.sim.wide{grid-template-columns:1fr}
+.sim .ctl{display:flex;flex-direction:column;gap:9px;font-size:15px}
+.sim .ctl .row{display:grid;grid-template-columns:1fr auto;gap:2px 8px;align-items:center}
+.sim .ctl .row label{color:var(--ink2)}
+.sim .ctl .row output{font-variant-numeric:tabular-nums;font-weight:500;min-width:4.5em;text-align:right}
+.sim .ctl .row input[type=range]{grid-column:1/3;width:100%;accent-color:var(--ink)}
+.sim .ctl select,.sim .ctl button,.btn{font:inherit;font-size:15px;padding:5px 10px;border:1px solid #b9bec6;border-radius:6px;background:#fff;color:var(--ink);cursor:pointer}
+.sim .ctl button:hover,.btn:hover{border-color:var(--ink)}
+.sim .ctl .btns{display:flex;flex-wrap:wrap;gap:6px}
+.sim .ctl .chk{display:flex;gap:6px;align-items:center;color:var(--ink2)}
+.sim .view{min-width:0}
+.sim .view canvas{display:block;width:100%;height:auto;background:#fff}
+.sim .out{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:4px 16px;margin-top:6px;font-size:15px}
+.sim .out div{border-top:1px solid var(--line);padding-top:3px}
+.sim .out span{display:block;color:var(--ink2);font-size:13px}
+.sim .out b{font-size:17px;font-variant-numeric:tabular-nums}
+.sim .msg{margin-top:6px;font-size:15px;padding:6px 10px;border-left:3px solid var(--ink2)}
+.sim .msg.ok{border-color:var(--green)}
+.sim .msg.warn{border-color:var(--amber)}
+.sim .msg.bad{border-color:var(--red)}
+.tryit{font-size:.9em;color:var(--ink2)}
+
+/* ---------- 3D viewer ---------- */
+.m3d{position:relative;display:grid;grid-template-columns:1fr 250px;gap:14px;margin:.3em 0 .6em;min-height:430px}
+.m3d .stage3d{position:relative;height:430px;background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.m3d .stage3d canvas{display:block;width:100%!important;height:100%!important}
+.m3d .pins{position:absolute;inset:0;pointer-events:none}
+.m3d .pin{position:absolute;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:#fff;border:1.5px solid var(--ink);font:500 12px/19px Roboto,sans-serif;text-align:center;color:var(--ink);pointer-events:auto;cursor:pointer}
+.m3d .pin.on{background:var(--ink);color:#fff}
+.m3d .tools{position:absolute;left:8px;top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.m3d .tools button{font:inherit;font-size:13px;padding:4px 9px;border:1px solid #b9bec6;border-radius:5px;background:rgba(255,255,255,.92);cursor:pointer}
+.m3d .tools button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.m3d .parts{font-size:14px;max-height:430px;overflow:auto;padding-right:2px}
+.m3d .parts h4{margin:0 0 .3em;font-size:15px}
+.m3d .parts ol{margin:0;padding-left:1.7em}
+.m3d .parts li{cursor:pointer;padding:2px 4px;border-radius:4px}
+.m3d .parts li.on{background:var(--soft);font-weight:500}
+.m3d .callout{position:absolute;z-index:5;width:300px;background:#fff;border:1px solid #9aa0a8;border-radius:6px;box-shadow:0 6px 24px rgba(0,0,0,.14);padding:10px;font-size:13.5px;display:none}
+.m3d .callout.show{display:block}
+.m3d .callout h5{margin:0 0 6px;font-size:15px;padding-right:22px}
+.m3d .callout .x{position:absolute;right:6px;top:4px;border:0;background:none;font-size:18px;cursor:pointer;color:var(--ink2)}
+.m3d .callout .zoom{height:150px;background:#fbfbfc;border:1px solid var(--line);border-radius:4px;margin-bottom:6px}
+.m3d .callout .zoom canvas{display:block;width:100%!important;height:100%!important}
+.m3d .callout .ph{min-height:20px;margin-bottom:6px}
+.m3d .callout .ph img{display:block;width:100%;max-height:150px;object-fit:cover;border-radius:4px}
+.m3d .callout .ph small{display:block;font-size:11px;line-height:1.3;margin-top:3px}
+.m3d .callout p{margin:0}
+.m3d svg.lead{position:absolute;inset:0;pointer-events:none;z-index:4;overflow:visible}
+.m3d .hud{position:absolute;right:8px;top:8px;text-align:right;z-index:3;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:5px;padding:5px 8px;font:13px/1.35 Roboto,sans-serif;color:var(--ink);pointer-events:none;font-variant-numeric:tabular-nums;max-width:48%}
+.m3d .hud:empty{display:none}
+.m3d .hud b{font-weight:500}
+.m3d .lab{border:1px solid var(--line);border-radius:6px;padding:8px 9px;margin-bottom:10px;background:#fafbfc}
+.m3d .lab h4{margin:0 0 4px;font-size:14px}
+.m3d .lrow{display:grid;grid-template-columns:1fr auto;gap:0 6px;font-size:13px;margin:4px 0 2px}
+.m3d .lrow i{font-style:normal;color:var(--mute)}
+.m3d .lrow output{font-weight:500;font-variant-numeric:tabular-nums}
+.m3d .lrow input{grid-column:1/3;width:100%;margin:2px 0 0}
+.m3d .lbtns{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.m3d .lbtns button{font:inherit;font-size:12.5px;padding:3px 8px;border:1px solid #b9bec6;border-radius:5px;background:#fff;cursor:pointer}
+.m3d .lbtns button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.m3d .fallback{padding:30px;color:var(--ink2)}
+.m3d .loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--mute)}
+
+/* photo figures */
+figure.photo{margin:.4em 0 .8em}
+figure.photo img{display:block;max-width:100%;max-height:330px;margin:0 auto;border-radius:4px}
+figure.photo figcaption{font-size:.82em;color:var(--ink2);text-align:center;margin-top:.3em}
+figure.photo .credit{font-size:.78em;color:var(--mute)}
+.photogrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+
+/* ---------- page view (default, also print fallback) ---------- */
+.pagehead{max-width:1040px;margin:0 auto;padding:22px 20px 0;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;font-size:15px}
+.pagehead a{text-decoration:none}
+#doc{max-width:1040px;margin:0 auto;padding:10px 20px 80px}
+#doc>header h1{font-size:2.1em;margin:.3em 0 .2em}
+#doc section.sec{padding-top:1.2em;border-top:1px solid var(--line);margin-top:1.4em}
+#doc h2{font-size:1.6em}
+#doc h2 .n{color:var(--red);margin-right:.45em;font-weight:500}
+#doc h3{font-size:1.2em;margin-top:1.1em}
+
+/* ---------- slide mode ---------- */
+html.deck,html.deck body{height:100%;overflow:hidden}
+html.deck .pagehead,html.deck #doc{display:none}
+.stagewrap{position:fixed;left:0;right:0;top:0;bottom:var(--barh);overflow:hidden;background:#e9ebee}
+.fsmode .stagewrap{bottom:0;background:#000}
+.stage{position:absolute;left:0;top:0;width:1280px;height:720px;transform-origin:0 0}
+.slide{position:absolute;inset:0;width:1280px;height:720px;background:#fff;overflow:hidden;display:none;font-size:20px}
+.slide.cur{display:block}
+.slide .sh{position:absolute;left:60px;right:60px;top:34px;height:74px;display:flex;flex-direction:column;justify-content:flex-end}
+.slide .sh .crumb{font-size:15px;color:var(--mute);margin-bottom:4px}
+.slide .sh h2{font-size:36px;margin:0;letter-spacing:-.2px}
+.slide .sh h2 .n{color:var(--red);font-weight:500;margin-right:.4em}
+.slide .sh h3{font-size:22px;margin:4px 0 0;color:var(--ink2);font-weight:500}
+.slide .sb{position:absolute;left:60px;right:60px;top:128px;bottom:34px;overflow:hidden}
+.slide .sh.sub+.sb{top:150px}
+.slide .fitbox{transform-origin:0 0}
+.slide .pg{position:absolute;right:26px;bottom:10px;font-size:13px;color:var(--mute)}
+.slide.title .tbox{position:absolute;left:90px;right:90px;top:70px;bottom:50px;display:grid;grid-template-columns:1.05fr 1fr;gap:60px}
+.slide.title .course{font-size:18px;color:var(--ink2);margin-bottom:22px}
+.slide.title h1{font-size:50px;line-height:1.1;margin:0 0 22px;letter-spacing:-.4px}
+.slide.title .who{font-size:18px;color:var(--ink2);line-height:1.6}
+.slide.title .bar{width:70px;height:4px;background:var(--red);margin:0 0 26px}
+.slide.title .toc{font-size:19px;align-self:center;border-left:1px solid var(--line);padding-left:36px}
+.slide.title .toc h4{font-size:16px;color:var(--mute);font-weight:500;margin-bottom:10px}
+.slide.title .toc ol{list-style:none;padding:0;margin:0}
+.slide.title .toc li{margin:7px 0;cursor:pointer}
+.slide.title .toc li span{color:var(--red);display:inline-block;width:2.4em;font-weight:500}
+.slide.title .toc li:hover{text-decoration:underline}
+
+/* bottom bar */
+.deckbar{position:fixed;left:0;right:0;bottom:0;height:var(--barh);background:#fff;border-top:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:0 12px;font-size:14px;z-index:50;transition:transform .25s ease}
+.deckbar a,.deckbar button,.deckbar select{font:inherit;font-size:14px;color:var(--ink);background:#fff;border:1px solid #c5c9cf;border-radius:6px;padding:5px 10px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.deckbar button:hover,.deckbar a:hover{border-color:var(--ink)}
+.deckbar .where{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink2);padding:0 6px}
+.deckbar .where b{color:var(--ink)}
+.deckbar select{max-width:230px}
+.deckbar .cnt{font-variant-numeric:tabular-nums;color:var(--ink2);min-width:4.6em;text-align:center}
+.deckbar .prog{position:absolute;left:0;top:-1px;height:3px;background:var(--red);transition:width .2s}
+.fsmode .deckbar{background:rgba(255,255,255,.97)}
+.fsmode.barhid .deckbar{transform:translateY(100%)}
+.fsmode.barhid{cursor:none}
+
+/* ---------- print (PDF) ---------- */
+@page{size:1280px 720px;margin:0}
+html.printing,html.printing body{height:auto;overflow:visible;background:#fff}
+html.printing .stagewrap{position:static;background:#fff}
+html.printing .stage{position:static;transform:none!important;width:1280px;height:auto}
+html.printing .slide{display:block;position:relative;page-break-after:always;break-after:page}
+html.printing .deckbar,html.printing .m3d .tools,html.printing .m3d .callout{display:none!important}
+html.printing *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+/* ---------- home page ---------- */
+.home{max-width:1040px;margin:0 auto;padding:40px 20px 60px}
+.home h1{font-size:2.4em;margin:.2em 0 .1em}
+.home .sub{color:var(--ink2);margin-bottom:1.6em}
+.chlist{list-style:none;padding:0;margin:0}
+.chlist li{display:grid;grid-template-columns:4.2em 1fr auto;gap:6px 18px;padding:18px 0;border-top:1px solid var(--line);align-items:baseline}
+.chlist .num{font-size:1.9em;color:var(--red);font-weight:500}
+.chlist h2{font-size:1.3em;margin:0 0 .2em}
+.chlist p{margin:0;color:var(--ink2);font-size:.95em}
+.chlist .go{display:flex;gap:8px;flex-wrap:wrap}
+
+/* ---------- small screens ---------- */
+@media (max-width:760px){
+  body{font-size:17px}
+  .two,.two.w60,.two.w40{grid-template-columns:1fr;gap:10px}
+  .sim{grid-template-columns:1fr}
+  .m3d{grid-template-columns:1fr}
+  .m3d .stage3d{height:400px}
+  .m3d .hud{font-size:11px;line-height:1.3;top:auto;bottom:6px;right:6px;left:6px;max-width:none;text-align:left;padding:3px 6px}
+  .m3d .tools button{font-size:12px;padding:3px 7px}
+  .m3d{min-height:320px}
+  .m3d .callout{position:static;width:auto;margin-top:8px}
+  .m3d svg.lead{display:none}
+  .deckbar .where,.deckbar select,.deckbar .opt{display:none}
+  .chlist li{grid-template-columns:3em 1fr}
+  .chlist .go{grid-column:2}
+  #doc h2{font-size:1.35em}
+  table{display:block;overflow-x:auto}
+  #doc .katex{display:inline-block;max-width:100%;overflow-x:auto;overflow-y:hidden;vertical-align:middle}
+  #doc .katex-display>.katex{display:block}
+  .two>div,.sim .view,.sim .ctl{min-width:0}
+  #doc{overflow-x:hidden}
+}
+/* in slides, size a model's canvas by height so the fit can settle */
+.slide .sim .view canvas{max-height:390px;width:auto;max-width:100%;margin:0 auto}
+
+/* ---------- site bar (same as the other Mechanics Labs pages) ---------- */
+.sitebar{max-width:1360px;margin:0 auto;padding:12px 20px 0;font-size:13px;display:flex;gap:16px;flex-wrap:wrap}
+.sitebar a{color:var(--mute);text-decoration:none}
+.sitebar a:hover,.sitebar a:focus-visible{color:var(--ink);text-decoration:underline}
+.sitebar a[aria-current]{color:var(--ink);font-weight:500}
+@media (max-width:600px){.sitebar{padding-inline:16px}}
+html.deck .sitebar{display:none}
+
+/* ---------- course contents page ---------- */
+.notes{max-width:1360px;margin:0 auto;padding:0 20px 40px}
+.notes header.top{display:grid;gap:6px;margin:18px 0 20px;max-width:900px}
+.notes .eyebrow{font-size:13px;color:var(--mute)}
+.notes header.top h1{font-size:32px;margin:0}
+.notes header.top p{margin:0;color:var(--ink2);font-size:16px;line-height:1.6;max-width:680px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:18px;margin-top:8px}
+.card{display:grid;grid-template-rows:auto 1fr;background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden;color:inherit;text-decoration:none}
+.card:hover{border-color:var(--mute)}
+.card:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.card img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-bottom:1px solid var(--line);background:var(--soft)}
+.card .b{padding:14px 16px 16px;display:grid;gap:6px;align-content:start}
+.card .c{font-size:12.5px;color:var(--mute)}
+.card h2{margin:0;font-size:21px;color:var(--ink)}
+.card p{margin:0;color:var(--mute);font-size:14.5px;line-height:1.5}
+.card ul{margin:4px 0 0;padding-left:18px;font-size:13.5px;color:var(--ink2);line-height:1.45}
+.notes .foot{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--mute)}
+.notes .foot p{margin:0 0 6px}
+.labs-h{font-size:22px;font-weight:500;margin:34px 0 4px}.labs-p{margin:0 0 10px;color:var(--muted,#5b6977);max-width:76ch}
