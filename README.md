@@ -4,8 +4,8 @@ Interactive notes for the two Mechanics of Machines courses at Uganda Martyrs Un
 
 | Course | Folder | Contents |
 |---|---|---|
-| Mechanics of Machines I (BME 2102) | [`bme2102/`](bme2102/) | Seven chapters as slide decks: introduction, simple mechanisms, velocity and acceleration, belt drives, toothed gearing, cams, balancing. 3D models use three.js from `vendor/`. A tutorial class, `tutorial.html`, gathers every worked calculation by topic. |
-| Mechanics of Machines II (BME 3102) | [`bme3102/`](bme3102/) | Seven chapters as slide decks: planar mechanisms, turning moment and the flywheel, vibrations, friction and clutches, gearing and gear trains, kinematic synthesis, governors and gyroscopes. A tutorial class, `tutorial.html`, gathers every worked calculation by topic. |
+| Mechanics of Machines I (BME 2102) | [`bme2102/`](bme2102/) | Seven chapters as slide decks: introduction, simple mechanisms, velocity and acceleration, belt drives, toothed gearing, cams, balancing. 3D models use three.js from `vendor/`. Tutorial class: `tutorial.html`. |
+| Mechanics of Machines II (BME 3102) | [`bme3102/`](bme3102/) | Seven chapters as slide decks: planar mechanisms, turning moment and the flywheel, vibrations, friction and clutches, gearing and gear trains, kinematic synthesis, governors and gyroscopes. Tutorial class: `tutorial.html`. |
 
 ## Labs
 
